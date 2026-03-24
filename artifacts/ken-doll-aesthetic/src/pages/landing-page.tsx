@@ -516,7 +516,7 @@ export default function LandingPage() {
                     </div>
                     <div>
                       <h4 className="font-bold text-foreground">Lokalizacja</h4>
-                      <p className="text-muted-foreground mt-1">ul. Różana 10/12<br/>00-001 Warszawa</p>
+                      <p className="text-muted-foreground mt-1">Arcybiskupa Józefa Teodorowicza 4<br/>02-972 Warszawa</p>
                     </div>
                   </div>
                   
@@ -690,12 +690,12 @@ export default function LandingPage() {
                 </div>
                 <div>
                   <h3 className="font-bold text-foreground font-serif text-lg">Znajdź nas na mapie</h3>
-                  <p className="text-sm text-muted-foreground">ul. Różana 10/12, 00-001 Warszawa</p>
+                  <p className="text-sm text-muted-foreground">Arcybiskupa Józefa Teodorowicza 4, 02-972 Warszawa</p>
                 </div>
               </div>
               <iframe
                 title="Ken Doll Aesthetic – lokalizacja"
-                src="https://maps.google.com/maps?q=ul.+Ro%C5%BCana+10%2C+Warszawa&output=embed&z=15"
+                src="https://maps.google.com/maps?q=Arcybiskupa+J%C3%B3zefa+Teodorowicza+4%2C+02-972+Warszawa&output=embed&z=16"
                 width="100%"
                 height="420"
                 style={{ border: 0, display: "block" }}
