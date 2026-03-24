@@ -1,0 +1,12 @@
+packages:
+  "framer-motion": "For smooth scroll animations, premium page transitions, and floating effects"
+  "@hookform/resolvers": "For form validation with react-hook-form and zod"
+  "react-hook-form": "For robust contact form state management"
+  "zod": "For contact form schema validation"
+
+images: []
+
+notes:
+  - "No backend is required. This is a static landing page with stateful client-side forms."
+  - "Using Framer Motion for scroll reveals and premium animations."
+  - "Using Lucide React for all iconography as requested."
