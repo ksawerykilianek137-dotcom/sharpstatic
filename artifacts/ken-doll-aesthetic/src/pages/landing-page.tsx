@@ -148,11 +148,12 @@ export default function LandingPage() {
         }`}
       >
         <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-primary" />
-            <span className="font-serif text-2xl font-bold text-foreground">
-              Ken Doll <span className="text-primary">Aesthetic</span>
-            </span>
+          <div className="flex items-center">
+            <img
+              src="/logo.png"
+              alt="Ken Doll Aesthetic"
+              className="h-16 w-auto object-contain"
+            />
           </div>
 
           {/* Desktop Nav */}
@@ -712,11 +713,12 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
             <div className="text-center md:text-left">
-              <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
-                <Sparkles className="h-6 w-6 text-primary" />
-                <span className="font-serif text-2xl font-bold text-white">
-                  Ken Doll <span className="text-primary">Aesthetic</span>
-                </span>
+              <div className="flex items-center justify-center md:justify-start mb-4">
+                <img
+                  src="/logo.png"
+                  alt="Ken Doll Aesthetic"
+                  className="h-20 w-auto object-contain brightness-0 invert"
+                />
               </div>
               <p className="text-sm text-white/60 max-w-xs mx-auto md:mx-0">
                 Premium salon piękności inspirujący się wszystkim, co piękne, różowe i absolutnie perfekcyjne.
