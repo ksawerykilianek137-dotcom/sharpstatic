@@ -673,6 +673,37 @@ export default function LandingPage() {
               </Form>
             </motion.div>
           </div>
+
+          {/* GOOGLE MAPS */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-16 max-w-6xl mx-auto"
+          >
+            <div className="glass-panel rounded-3xl overflow-hidden shadow-xl border border-primary/10">
+              <div className="px-8 py-6 flex items-center gap-3 border-b border-border/50">
+                <div className="w-10 h-10 rounded-full bg-secondary/50 flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-accent" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-foreground font-serif text-lg">Znajdź nas na mapie</h3>
+                  <p className="text-sm text-muted-foreground">ul. Różana 10/12, 00-001 Warszawa</p>
+                </div>
+              </div>
+              <iframe
+                title="Ken Doll Aesthetic – lokalizacja"
+                src="https://maps.google.com/maps?q=ul.+Ro%C5%BCana+10%2C+Warszawa&output=embed&z=15"
+                width="100%"
+                height="420"
+                style={{ border: 0, display: "block" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </motion.div>
         </div>
       </section>
 
