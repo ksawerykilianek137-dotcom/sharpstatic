@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { 
   Sparkles, Wine, Crown, Scissors, Brush, Hand, Smile, Droplet, 
-  MapPin, Phone, Mail, Clock, Instagram, Facebook, Twitter, Menu, X, ChevronRight 
+  MapPin, Phone, Mail, Clock, Instagram, Facebook, Menu, X, ChevronRight 
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -755,9 +755,6 @@ export default function LandingPage() {
                 </a>
                 <a href="https://www.facebook.com/p/Ken-Doll-Aesthetic-100086429955673/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
                   <Facebook className="w-5 h-5" />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
-                  <Twitter className="w-5 h-5" />
                 </a>
               </div>
             </div>
