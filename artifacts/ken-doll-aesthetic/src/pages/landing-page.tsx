@@ -526,7 +526,7 @@ export default function LandingPage() {
                     </div>
                     <div>
                       <h4 className="font-bold text-foreground">Telefon</h4>
-                      <p className="text-muted-foreground mt-1">+48 000 000 000</p>
+                      <a href="tel:+48503446066" className="text-muted-foreground mt-1 hover:text-primary transition-colors block">+48 503 446 066</a>
                     </div>
                   </div>
                   
@@ -536,7 +536,7 @@ export default function LandingPage() {
                     </div>
                     <div>
                       <h4 className="font-bold text-foreground">Email</h4>
-                      <p className="text-muted-foreground mt-1">hello@kendollaesthetic.pl</p>
+                      <a href="mailto:kendollaesthetic@gmail.com" className="text-muted-foreground mt-1 hover:text-primary transition-colors block">kendollaesthetic@gmail.com</a>
                     </div>
                   </div>
                 </div>
