@@ -229,56 +229,74 @@ export default function LandingPage() {
         </div>
         
         <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Text content */}
+            <div className="text-center lg:text-left">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                className="inline-block mb-4 px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-sm border border-primary/20 text-primary text-sm font-medium"
+              >
+                Twój czas na bycie gwiazdą ✨
+              </motion.div>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground leading-tight"
+              >
+                Poczuj Magię <br/>
+                <span className="bg-shimmer">Barbie</span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto lg:mx-0"
+              >
+                Premium salon piękności, gdzie klasyczna elegancja spotyka się z nowoczesnym glamourem. Poczuj się idealnie w swojej skórze.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+              >
+                <Button
+                  size="lg"
+                  onClick={scrollToContact}
+                  className="w-full sm:w-auto rounded-full px-8 bg-primary hover:bg-primary/90 text-white text-lg h-14 shadow-[0_0_20px_rgba(232,60,108,0.4)] hover:shadow-[0_0_30px_rgba(232,60,108,0.6)] transition-all hover:-translate-y-1"
+                >
+                  Umów wizytę
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+                  className="w-full sm:w-auto rounded-full px-8 text-lg h-14 border-2 border-primary/20 hover:bg-primary/5 transition-all"
+                >
+                  Nasze usługi
+                </Button>
+              </motion.div>
+            </div>
+
+            {/* Right: Mascot image */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="inline-block mb-4 px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-sm border border-primary/20 text-primary text-sm font-medium"
+              initial={{ opacity: 0, x: 40, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 0.9, delay: 0.3 }}
+              className="flex items-end justify-center relative"
             >
-              Twój czas na bycie gwiazdą ✨
-            </motion.div>
-            
-            <motion.h1 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-7xl font-bold mb-6 text-foreground leading-tight"
-            >
-              Poczuj Magię <br/>
-              <span className="bg-shimmer">Barbie</span>
-            </motion.h1>
-            
-            <motion.p 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto"
-            >
-              Premium salon piękności, gdzie klasyczna elegancja spotyka się z nowoczesnym glamourem. Poczuj się idealnie w swojej skórze.
-            </motion.p>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-              <Button 
-                size="lg" 
-                onClick={scrollToContact}
-                className="w-full sm:w-auto rounded-full px-8 bg-primary hover:bg-primary/90 text-white text-lg h-14 shadow-[0_0_20px_rgba(232,60,108,0.4)] hover:shadow-[0_0_30px_rgba(232,60,108,0.6)] transition-all hover:-translate-y-1"
-              >
-                Umów wizytę
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-                className="w-full sm:w-auto rounded-full px-8 text-lg h-14 border-2 border-primary/20 hover:bg-primary/5 transition-all"
-              >
-                Nasze usługi
-              </Button>
+              <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl scale-75"></div>
+              <img
+                src="/mascot.png"
+                alt="Ken Doll Aesthetic maskotka"
+                className="relative z-10 w-full max-w-sm lg:max-w-md xl:max-w-lg object-contain drop-shadow-2xl animate-float"
+              />
             </motion.div>
           </div>
         </div>
