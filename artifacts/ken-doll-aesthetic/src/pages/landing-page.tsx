@@ -232,15 +232,6 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Text content */}
             <div className="text-center lg:text-left">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
-                className="inline-block mb-4 px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-sm border border-primary/20 text-primary text-sm font-medium"
-              >
-                Twój czas na bycie gwiazdą ✨
-              </motion.div>
-
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
