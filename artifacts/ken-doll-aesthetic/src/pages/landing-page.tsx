@@ -750,7 +750,7 @@ export default function LandingPage() {
             <div className="text-center md:text-right">
               <h4 className="font-bold text-white mb-4">Obserwuj nas</h4>
               <div className="flex items-center justify-center md:justify-end gap-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+                <a href="https://www.instagram.com/ken_doll_aesthetic/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
                   <Instagram className="w-5 h-5" />
                 </a>
                 <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-white transition-all">
