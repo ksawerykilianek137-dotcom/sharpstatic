@@ -1,0 +1,8 @@
+{
+  "buildCommand": "pnpm --filter @workspace/ken-doll-aesthetic run build",
+  "outputDirectory": "artifacts/ken-doll-aesthetic/dist",
+  "installCommand": "pnpm install --no-frozen-lockfile",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
