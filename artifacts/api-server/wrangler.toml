@@ -1,0 +1,14 @@
+name = "api-server"
+compatibility_date = "2024-11-01"
+main = "src/index.ts"
+
+[vars]
+# DATABASE_URL should be set as a secret in Cloudflare: wrangler secret put DATABASE_URL
+# PORT and BASE_PATH are handled by Cloudflare automatically or can be set here if needed
+
+[[kv_namespaces]]
+# binding = "MY_KV"
+# id = "..."
+
+[observability.logs]
+enabled = true

@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Agency Landing Page"
+version = "1.0.0"
+id = "artifacts/agency-landing"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25822
+
+[services.development]
+run = "pnpm --filter @workspace/agency-landing run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/agency-landing", "run", "build" ]
+publicDir = "artifacts/agency-landing/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25822"
+BASE_PATH = "/"

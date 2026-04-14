@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -126,12 +126,12 @@ export default function LandingPage() {
   };
 
   // Animation Variants
-  const fadeInUp = {
+  const fadeInUp: Variants = {
     hidden: { opacity: 0, y: 40 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
   
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -217,6 +217,10 @@ export default function LandingPage() {
 
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-gradient-to-br from-secondary/50 via-background to-primary/10">
+        {/* Background Glows */}
+        <div className="glow-pink top-1/4 -left-20 animate-pulse-glow" />
+        <div className="glow-gold bottom-1/4 -right-20" />
+
         {/* Floating Decorative Elements */}
         <div className="absolute top-1/4 left-[10%] text-primary/40 animate-float">
           <Sparkles className="h-12 w-12" />
@@ -231,22 +235,36 @@ export default function LandingPage() {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Text content */}
-            <div className="text-center lg:text-left">
+            <div className="text-center lg:text-left relative">
+              {/* Elite Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1, duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/50 border border-primary/20 backdrop-blur-sm text-primary text-xs font-bold uppercase tracking-widest mb-6 shadow-sm"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                Elite Selection 2024
+              </motion.div>
+
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground leading-tight"
+                className="text-6xl md:text-7xl lg:text-8xl font-black mb-6 text-foreground leading-[0.9] tracking-tighter"
               >
                 Poczuj Magię <br/>
-                <span className="bg-shimmer">Barbie</span>
+                <span className="text-gradient-pink-gold">Barbie</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto lg:mx-0"
+                className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed"
               >
                 Premium salon piękności, gdzie klasyczna elegancja spotyka się z nowoczesnym glamourem. Poczuj się idealnie w swojej skórze.
               </motion.p>
@@ -260,15 +278,16 @@ export default function LandingPage() {
                 <Button
                   size="lg"
                   onClick={scrollToContact}
-                  className="w-full sm:w-auto rounded-full px-8 bg-primary hover:bg-primary/90 text-white text-lg h-14 shadow-[0_0_20px_rgba(232,60,108,0.4)] hover:shadow-[0_0_30px_rgba(232,60,108,0.6)] transition-all hover:-translate-y-1"
+                  className="w-full sm:w-auto rounded-full px-10 bg-primary hover:bg-primary/90 text-white text-lg h-16 shadow-[0_10px_30px_rgba(232,60,108,0.4)] hover:shadow-[0_15px_40px_rgba(232,60,108,0.5)] transition-all hover:-translate-y-1 active:scale-95 flex items-center gap-2"
                 >
                   Umów wizytę
+                  <ChevronRight className="w-5 h-5" />
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
                   onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
-                  className="w-full sm:w-auto rounded-full px-8 text-lg h-14 border-2 border-primary/20 hover:bg-primary/5 transition-all"
+                  className="w-full sm:w-auto rounded-full px-10 text-lg h-16 border-2 border-primary/20 hover:bg-white transition-all hover:border-primary/40"
                 >
                   Nasze usługi
                 </Button>
@@ -282,11 +301,11 @@ export default function LandingPage() {
               transition={{ duration: 0.9, delay: 0.3 }}
               className="flex items-end justify-center relative"
             >
-              <div className="absolute inset-0 bg-primary/10 rounded-full blur-3xl scale-75"></div>
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-[120px] scale-75 animate-pulse-glow"></div>
               <img
                 src="/mascot.png"
                 alt="Ken Doll Aesthetic maskotka"
-                className="relative z-10 w-full max-w-sm lg:max-w-md xl:max-w-lg object-contain drop-shadow-2xl animate-float"
+                className="relative z-10 w-full max-w-sm lg:max-w-md xl:max-w-lg object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.15)] animate-float"
               />
             </motion.div>
           </div>
@@ -294,51 +313,76 @@ export default function LandingPage() {
       </section>
 
       {/* ABOUT US SECTION */}
-      <section id="about" className="py-24 bg-white relative">
+      <section id="about" className="py-32 bg-white relative overflow-hidden">
+        <div className="glow-gold -top-20 -right-20 opacity-30" />
+        
         <div className="container mx-auto px-4 md:px-6">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="max-w-4xl mx-auto"
+            className="max-w-5xl mx-auto"
           >
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">O Nas</h2>
-              <div className="w-24 h-1 bg-primary mx-auto rounded-full opacity-50"></div>
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tighter">Dlaczego Ken Doll?</h2>
+              <div className="w-24 h-1.5 bg-primary/30 mx-auto rounded-full"></div>
             </div>
             
-            <div className="glass-panel rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
-              {/* decorative bg shape */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/30 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
+            <div className="glass-panel rounded-[2rem] p-10 md:p-16 text-center relative overflow-hidden ring-1 ring-black/5">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-secondary/20 rounded-full blur-[100px] -z-10 translate-x-1/3 -translate-y-1/3"></div>
               
-              <p className="text-lg md:text-xl text-foreground/80 leading-relaxed mb-12">
-                W <strong className="text-primary">Ken Doll Aesthetic</strong> wierzymy, że każdy zasługuje na chwilę absolutnego luksusu. Nasz salon to przestrzeń stworzona z miłości do piękna, inspirowana perfekcyjnym światem Barbie. Oferujemy nie tylko zabiegi, ale kompletne doświadczenie premium.
+              <p className="text-xl md:text-2xl text-foreground font-medium leading-relaxed mb-16 italic">
+                "W <strong className="text-primary font-black">Ken Doll Aesthetic</strong> wierzymy, że luksus to nie przywilej, a standard, na który zasługujesz każdego dnia."
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="flex flex-col items-center p-6 rounded-2xl bg-muted/50 hover:bg-muted transition-colors">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
-                    <Wine className="w-8 h-8" />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div className="flex flex-col items-center group">
+                  <div className="w-20 h-20 rounded-2xl bg-primary/5 flex items-center justify-center mb-6 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
+                    <Wine className="w-10 h-10" />
                   </div>
-                  <h3 className="font-bold text-lg mb-2">Relaks z Prosecco</h3>
-                  <p className="text-sm text-muted-foreground text-center">Do każdego zabiegu serwujemy lampkę zimnego prosecco.</p>
+                  <h3 className="font-black text-xl mb-3 tracking-tight">Rytuał Prosecco</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Zacznij wizytę od lampki zimnego prosecco w cenie każdego zabiegu.</p>
                 </div>
                 
-                <div className="flex flex-col items-center p-6 rounded-2xl bg-muted/50 hover:bg-muted transition-colors">
-                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-4 text-accent">
-                    <Crown className="w-8 h-8" />
+                <div className="flex flex-col items-center group">
+                  <div className="w-20 h-20 rounded-2xl bg-accent/5 flex items-center justify-center mb-6 text-accent group-hover:scale-110 group-hover:bg-accent group-hover:text-white transition-all duration-500 shadow-sm">
+                    <Crown className="w-10 h-10" />
                   </div>
-                  <h3 className="font-bold text-lg mb-2">Produkty Premium</h3>
-                  <p className="text-sm text-muted-foreground text-center">Pracujemy wyłącznie na luksusowych, sprawdzonych markach.</p>
+                  <h3 className="font-black text-xl mb-3 tracking-tight">Kosmetyki Elite</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Pracujemy na luksusowych liniach, niedostępnych w standardowych salonach.</p>
                 </div>
 
-                <div className="flex flex-col items-center p-6 rounded-2xl bg-muted/50 hover:bg-muted transition-colors">
-                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
-                    <Sparkles className="w-8 h-8" />
+                <div className="flex flex-col items-center group">
+                  <div className="w-20 h-20 rounded-2xl bg-primary/5 flex items-center justify-center mb-6 text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-500 shadow-sm">
+                    <Sparkles className="w-10 h-10" />
                   </div>
-                  <h3 className="font-bold text-lg mb-2">Strefa Glamour</h3>
-                  <p className="text-sm text-muted-foreground text-center">Piękne wnętrza idealne na relaks i pamiątkowe selfie.</p>
+                  <h3 className="font-black text-xl mb-3 tracking-tight">Standard Glamour</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Piękne wnętrza zaprojektowane z myślą o Twoim komforcie i... idealnym selfie.</p>
+                </div>
+              </div>
+
+              {/* Psychological Urgency Section */}
+              <div className="mt-20 pt-16 border-t border-black/5">
+                <div className="bg-primary/5 rounded-3xl p-8 border border-primary/10">
+                  <h4 className="text-xl font-black mb-4 flex items-center justify-center gap-2">
+                    <Scissors className="w-5 h-5 text-primary" />
+                    Koszt zwyczajnego wyglądu
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div className="p-4">
+                      <div className="text-3xl font-black text-primary mb-1">93%</div>
+                      <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Pierwszych wrażeń zależy od Twojej prezencji</div>
+                    </div>
+                    <div className="p-4 border-x border-black/5">
+                      <div className="text-3xl font-black text-primary mb-1">2.4h</div>
+                      <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Średni czas dziennie tracony na walkę z niedoskonałościami</div>
+                    </div>
+                    <div className="p-4">
+                      <div className="text-3xl font-black text-primary mb-1">100%</div>
+                      <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Gwarancja pewności siebie po wizycie u nas</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -347,19 +391,21 @@ export default function LandingPage() {
       </section>
 
       {/* SERVICES SECTION */}
-      <section id="services" className="py-24 bg-muted/30">
+      <section id="services" className="py-32 bg-secondary/10 relative overflow-hidden">
+        <div className="glow-pink -left-40 top-1/2 opacity-20" />
+        
         <div className="container mx-auto px-4 md:px-6">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Nasze Usługi</h2>
-            <div className="w-24 h-1 bg-primary mx-auto rounded-full opacity-50 mb-6"></div>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Odkryj menu zabiegów stworzonych po to, byś mogła błyszczeć każdego dnia.
+            <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tighter">Plan Twojej Metamorfozy</h2>
+            <div className="w-24 h-1.5 bg-primary/30 mx-auto rounded-full mb-8"></div>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Wyselekcjonowane rytuały piękna, które wykraczają poza ramy tradycyjnej kosmetyki.
             </p>
           </motion.div>
 
@@ -368,31 +414,37 @@ export default function LandingPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
           >
             {SERVICES.map((service, idx) => (
               <motion.div 
                 key={service.id}
                 variants={fadeInUp}
-                className={`group relative p-8 rounded-3xl bg-white border border-border/50 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden ${
-                  idx === 0 || idx === 3 ? "lg:col-span-2 lg:flex lg:items-center lg:gap-8 lg:p-10" : ""
+                className={`group relative p-10 rounded-[2.5rem] bg-white border border-black/5 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 overflow-hidden ${
+                  idx === 0 || idx === 3 ? "lg:col-span-2 lg:flex lg:items-center lg:gap-12 lg:p-14" : ""
                 }`}
               >
-                {/* Hover Gradient Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                {/* Elite Hover Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute -right-4 -bottom-4 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors"></div>
                 
-                <div className={`w-16 h-16 rounded-2xl pink-gradient flex items-center justify-center text-white mb-6 shadow-lg shadow-primary/20 ${
+                <div className={`w-24 h-24 rounded-3xl pink-gradient flex items-center justify-center text-white mb-8 shadow-xl shadow-primary/20 group-hover:rotate-6 transition-transform duration-500 ${
                   idx === 0 || idx === 3 ? "lg:mb-0 lg:shrink-0" : ""
                 }`}>
-                  <service.icon className="w-8 h-8" />
+                  <service.icon className="w-12 h-12" />
                 </div>
                 
-                <div className="relative z-10">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">{service.desc}</p>
-                  <div className="flex items-center text-accent font-semibold">
-                    <span>Od {service.price}</span>
-                    <ChevronRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                <div className="relative z-10 flex-1">
+                  <h3 className="text-2xl font-black mb-4 group-hover:text-primary transition-colors tracking-tight">{service.title}</h3>
+                  <p className="text-muted-foreground mb-8 text-lg leading-relaxed">{service.desc}</p>
+                  <div className="flex items-center justify-between">
+                    <div className="flex flex-col">
+                      <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground/60">Inwestycja</span>
+                      <span className="text-2xl font-black text-foreground">{service.price}</span>
+                    </div>
+                    <Button variant="ghost" className="rounded-full h-12 w-12 p-0 bg-secondary/20 hover:bg-primary hover:text-white transition-all">
+                      <ChevronRight className="w-6 h-6" />
+                    </Button>
                   </div>
                 </div>
               </motion.div>
@@ -402,36 +454,38 @@ export default function LandingPage() {
       </section>
 
       {/* GALLERY SECTION */}
-      <section id="gallery" className="py-24 bg-white overflow-hidden">
+      <section id="gallery" className="py-32 bg-white overflow-hidden relative">
+        <div className="glow-gold bottom-0 left-0 opacity-20" />
+        
         <div className="container mx-auto px-4 md:px-6">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Galeria</h2>
-            <div className="w-24 h-1 bg-accent mx-auto rounded-full opacity-50 mb-6"></div>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Zajrzyj do naszego różowego królestwa.
+            <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tighter">Estetyka w Obiektywie</h2>
+            <div className="w-24 h-1.5 bg-accent/30 mx-auto rounded-full mb-8"></div>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
+              Poczuj różową harmonię naszych wnętrz. Każdy detal został zaprojektowany, by inspirować.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {[1, 2, 3, 4, 5, 6].map((item) => (
               <motion.div
                 key={item}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: item * 0.1 }}
-                className="aspect-square rounded-3xl bg-gradient-to-br from-secondary/40 to-primary/10 border border-primary/10 flex flex-col items-center justify-center p-6 text-center group cursor-pointer hover:shadow-lg transition-all"
+                transition={{ duration: 0.6, delay: item * 0.1 }}
+                className="aspect-square rounded-[2rem] bg-gradient-to-br from-secondary/30 to-primary/5 border border-primary/10 flex flex-col items-center justify-center p-8 text-center group cursor-pointer hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ring-1 ring-black/5"
               >
-                <div className="w-16 h-16 rounded-full bg-white/50 backdrop-blur-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <Sparkles className="w-8 h-8 text-primary/40" />
+                <div className="w-20 h-20 rounded-full bg-white/60 backdrop-blur-xl flex items-center justify-center mb-6 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-md">
+                  <Sparkles className="w-10 h-10 text-primary/40" />
                 </div>
-                <h4 className="font-serif text-lg text-foreground/60">Zdjęcia wkrótce</h4>
+                <h4 className="font-serif text-xl font-medium text-foreground/60 tracking-tight">Kolekcja wkrótce</h4>
               </motion.div>
             ))}
           </div>
@@ -439,7 +493,9 @@ export default function LandingPage() {
       </section>
 
       {/* PRICING SECTION */}
-      <section id="pricing" className="py-24 bg-gradient-to-b from-muted/30 to-white">
+      <section id="pricing" className="py-32 bg-gradient-to-b from-secondary/10 to-white relative">
+        <div className="glow-pink top-0 right-0 opacity-10" />
+        
         <div className="container mx-auto px-4 md:px-6">
           <motion.div 
             initial="hidden"
@@ -448,39 +504,48 @@ export default function LandingPage() {
             variants={fadeInUp}
             className="max-w-4xl mx-auto"
           >
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Cennik</h2>
-              <div className="w-24 h-1 bg-primary mx-auto rounded-full opacity-50 mb-6"></div>
-              <p className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 text-sm font-medium text-foreground/80">
-                <Wine className="w-4 h-4 text-primary" />
+            <div className="text-center mb-20">
+              <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tighter">Inwestycja w Siebie</h2>
+              <div className="w-24 h-1.5 bg-primary/30 mx-auto rounded-full mb-8"></div>
+              <p className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white shadow-xl border border-black/5 text-sm font-bold text-foreground">
+                <Wine className="w-5 h-5 text-primary animate-pulse" />
                 Kieliszek prosecco w cenie każdego zabiegu
               </p>
             </div>
 
-            <div className="glass-panel rounded-3xl p-6 md:p-10 shadow-lg">
-              <ul className="space-y-6">
+            <div className="glass-panel rounded-[2.5rem] p-8 md:p-14 shadow-2xl relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+              
+              <ul className="space-y-10 relative z-10">
                 {[
-                  { name: "Stylizacja włosów", price: "120 zł" },
-                  { name: "Makijaż", price: "150 zł" },
-                  { name: "Manicure hybrydowy", price: "100 zł" },
-                  { name: "Pielęgnacja twarzy", price: "180 zł" },
-                  { name: "Depilacja", price: "80 - 150 zł" },
+                  { name: "Stylizacja włosów 'Klasyczny Ken'", price: "120 zł" },
+                  { name: "Makijaż 'Barbie Dream'", price: "150 zł" },
+                  { name: "Manicure hybrydowy 'Ken-tastic'", price: "100 zł" },
+                  { name: "Pielęgnacja twarzy 'Plastic Perfect'", price: "180 zł" },
+                  { name: "Depilacja 'Smooth Like Ken'", price: "80 - 150 zł" },
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-center justify-between group">
-                    <div className="flex items-center gap-4">
-                      <div className="w-2 h-2 rounded-full bg-primary/40 group-hover:bg-primary group-hover:scale-150 transition-all"></div>
-                      <span className="text-lg md:text-xl font-medium text-foreground/90">{item.name}</span>
+                  <motion.li 
+                    key={idx} 
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="flex items-center justify-between group/item"
+                  >
+                    <div className="flex items-center gap-6">
+                      <div className="w-3 h-3 rounded-full bg-primary/20 group-hover/item:bg-primary group-hover/item:scale-150 transition-all duration-300"></div>
+                      <span className="text-xl md:text-2xl font-bold text-foreground/90 tracking-tight">{item.name}</span>
                     </div>
-                    <div className="flex-1 border-b-2 border-dotted border-border/50 mx-4 opacity-30 group-hover:opacity-100 transition-opacity"></div>
-                    <span className="text-lg md:text-xl font-bold text-primary whitespace-nowrap">{item.price}</span>
-                  </li>
+                    <div className="flex-1 border-b-2 border-dotted border-black/10 mx-6 opacity-30 group-hover/item:opacity-100 transition-opacity"></div>
+                    <span className="text-2xl md:text-3xl font-black text-primary whitespace-nowrap">{item.price}</span>
+                  </motion.li>
                 ))}
               </ul>
               
-              <div className="mt-12 text-center">
+              <div className="mt-16 text-center">
                 <Button 
                   onClick={scrollToContact}
-                  className="rounded-full px-8 bg-foreground hover:bg-foreground/90 text-white h-12"
+                  className="rounded-full px-12 bg-foreground hover:bg-black text-white h-16 text-lg font-bold shadow-xl hover:-translate-y-1 transition-all"
                 >
                   Zarezerwuj termin
                 </Button>
@@ -491,9 +556,10 @@ export default function LandingPage() {
       </section>
 
       {/* CONTACT SECTION */}
-      <section id="contact" className="py-24 bg-white relative overflow-hidden">
+      <section id="contact" className="py-32 bg-white relative overflow-hidden">
         {/* Decorative background */}
-        <div className="absolute top-0 left-0 w-full h-[500px] bg-primary/5 -skew-y-3 origin-top-left -z-10"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-primary/[0.02] -z-10"></div>
+        <div className="glow-pink -left-20 top-1/4 opacity-10" />
         
         <div className="container mx-auto px-4 md:px-6">
           <motion.div 
@@ -501,10 +567,13 @@ export default function LandingPage() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="text-center mb-16"
+            className="text-center mb-24"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Skontaktuj się z nami</h2>
-            <div className="w-24 h-1 bg-primary mx-auto rounded-full opacity-50 mb-6"></div>
+            <h2 className="text-4xl md:text-5xl font-black mb-4 tracking-tighter">Zacznij Przygodę</h2>
+            <div className="w-24 h-1.5 bg-primary/30 mx-auto rounded-full mb-8"></div>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg leading-relaxed">
+              Twoja metamorfoza zaczyna się tutaj. Napisz do nas lub zadzwoń, by umówić termin.
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
@@ -578,10 +647,11 @@ export default function LandingPage() {
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="glass-panel p-8 md:p-10 rounded-3xl shadow-xl border-t-4 border-t-primary"
+              transition={{ duration: 0.8 }}
+              className="glass-panel p-10 md:p-14 rounded-[2.5rem] shadow-2xl border-t-8 border-t-primary relative overflow-hidden"
             >
-              <h3 className="text-2xl font-bold mb-6 font-serif text-center">Napisz do nas</h3>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -z-10"></div>
+              <h3 className="text-3xl font-black mb-10 font-serif text-center tracking-tight">Potrzebujesz Konsultacji?</h3>
               
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

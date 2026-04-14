@@ -1,8 +1,8 @@
-import { Router, type IRouter } from "express";
+import { Hono } from "hono";
 import healthRouter from "./health";
 
-const router: IRouter = Router();
+const app = new Hono();
 
-router.use(healthRouter);
+app.route("/", healthRouter);
 
-export default router;
+export default app;

@@ -124,19 +124,68 @@
   animation: shimmer 4s linear infinite;
 }
 
+/* Elite Typography Utilities */
+.text-gradient-pink-gold {
+  background: linear-gradient(
+    135deg,
+    hsl(343, 76%, 57%) 0%,
+    hsl(46, 65%, 52%) 50%,
+    hsl(343, 76%, 57%) 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 5s ease-in-out infinite;
+}
+
+.font-black {
+  font-weight: 950;
+}
+
+/* Glassmorphism Refinement */
 .glass-panel {
-  @apply bg-white/80 backdrop-blur-md border border-white/40 shadow-xl;
+  @apply bg-white/40 backdrop-blur-xl border border-white/10 shadow-2xl;
 }
 
-.pink-gradient {
-  background: linear-gradient(135deg, hsl(343, 76%, 57%) 0%, hsl(343, 85%, 65%) 100%);
+.glass-panel-dark {
+  @apply bg-slate-950/40 backdrop-blur-xl border border-white/5 shadow-2xl;
 }
 
-.gold-gradient {
-  background: linear-gradient(135deg, hsl(46, 65%, 52%) 0%, hsl(43, 75%, 82%) 100%);
+/* Background Depth & Glows */
+.glow-pink {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, hsla(343, 76%, 57%, 0.15) 0%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-gold {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, hsla(46, 65%, 52%, 0.1) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tighter leading-tight;
+  }
 }
