@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView, AnimatePresence, type Variants } from "framer-motion";
 import {
   Zap,
   Shield,
@@ -26,14 +26,14 @@ import {
   Check,
 } from "lucide-react";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } as any },
 };
 
-const stagger = {
+const stagger: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0.12 } as any },
 };
 
 function useScrollInView(threshold = 0.15) {
@@ -58,8 +58,8 @@ function Navbar() {
             <div className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center glow-blue-sm">
               <Zap className="w-4 h-4 text-white" strokeWidth={2.5} />
             </div>
-            <span className="font-bold text-xl tracking-tight text-white">
-              EDGE<span className="text-blue-400">CLAW</span>
+            <span className="font-bold text-xl tracking-tight text-white uppercase">
+              SHARP<span className="text-blue-400">STATIC</span>
             </span>
           </a>
 
@@ -344,7 +344,7 @@ function Pricing() {
           className="text-center mb-20"
         >
           <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-black text-blue-500 mb-6 uppercase tracking-tight">
-            CENNIK USŁUG EDGECLAW
+            CENNIK USŁUG SHARPSTATIC
           </motion.h2>
           <motion.p variants={fadeUp} className="text-xl md:text-2xl text-slate-400 font-medium">
             Ultra-szybkie strony internetowe oparte na technologii Cloudflare Edge
@@ -532,11 +532,11 @@ function ContactForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
+    const subject = `Speed Audit Request - ${form.businessName || form.name}`;
+    const body = `Name: ${form.name}\nBusiness: ${form.businessName}\nWebsite: ${form.websiteUrl}\nEmail: ${form.email}\n\nPlease provide a speed audit for my website.`;
+    window.location.href = `mailto:ksawery@sharpstatic.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
   };
 
@@ -703,8 +703,8 @@ function Footer() {
             <div className="w-7 h-7 rounded-lg bg-blue-500 flex items-center justify-center">
               <Zap className="w-3.5 h-3.5 text-white" strokeWidth={2.5} />
             </div>
-            <span className="font-bold text-lg text-white tracking-tight">
-              EDGE<span className="text-blue-400">CLAW</span>
+            <span className="font-bold text-lg text-white tracking-tight uppercase">
+              SHARP<span className="text-blue-400">STATIC</span>
             </span>
           </div>
 
@@ -715,7 +715,7 @@ function Footer() {
           </div>
 
           <p className="text-slate-600 text-sm">
-            © {new Date().getFullYear()} EdgeClaw. All rights reserved.
+            © {new Date().getFullYear()} SharpStatic. All rights reserved.
           </p>
         </div>
       </div>

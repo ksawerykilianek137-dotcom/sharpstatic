@@ -6,7 +6,7 @@ main = "src/index.ts"
 # DATABASE_URL should be set as a secret in Cloudflare: wrangler secret put DATABASE_URL
 # PORT and BASE_PATH are handled by Cloudflare automatically or can be set here if needed
 
-[[kv_namespaces]]
+# [[kv_namespaces]]
 # binding = "MY_KV"
 # id = "..."
 
