@@ -1,6 +1,6 @@
 {
-  "buildCommand": "pnpm --filter @workspace/ken-doll-aesthetic run build",
-  "outputDirectory": "artifacts/ken-doll-aesthetic/dist",
+  "buildCommand": "pnpm --filter @workspace/agency-landing run build",
+  "outputDirectory": "artifacts/agency-landing/dist/public",
   "installCommand": "pnpm install --no-frozen-lockfile",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
