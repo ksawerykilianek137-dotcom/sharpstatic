@@ -46,8 +46,8 @@ function Navbar() {
   const [open, setOpen] = useState(false);
 
   const links = [
-    { label: "Usługi", href: "#services" },
-    { label: "Cennik", href: "#pricing" },
+    { label: "Services", href: "#services" },
+    { label: "Pricing", href: "#pricing" },
   ];
 
   return (
@@ -59,7 +59,7 @@ function Navbar() {
               <Zap className="w-4 h-4 text-white" strokeWidth={2.5} />
             </div>
             <span className="font-bold text-xl tracking-tight text-white uppercase">
-              SHARP<span className="text-blue-400">STATIC</span>
+              EDGE<span className="text-blue-400">CLAW</span>
             </span>
           </a>
 
@@ -133,27 +133,20 @@ function Hero() {
       <div className="absolute inset-0 bg-radial-blue" />
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+<div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <motion.div
           variants={stagger}
           initial="hidden"
           animate="visible"
           className="text-center max-w-4xl mx-auto"
         >
-          <motion.div variants={fadeUp} className="mb-6">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-blue-400 bg-blue-500/10 border border-blue-500/20 px-4 py-2 rounded-full">
-              <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse" />
-              Cloudflare Edge Technology
-            </span>
-          </motion.div>
-
           <motion.h1
             variants={fadeUp}
             className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.05] mb-6 text-white"
           >
-            Profesjonalne Strony{" "}
+            Professional Websites{" "}
             <br className="hidden sm:block" />
-            Dla Twojego Biznesu.{" "}
+            For Your Business.{" "}
             <span className="text-gradient-blue">Premium.</span>
           </motion.h1>
 
@@ -161,9 +154,9 @@ function Hero() {
             variants={fadeUp}
             className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
           >
-            Projektujemy i wdrażamy ultra-szybkie strony w technologii React.{" "}
+            We design and build ultra-fast React websites.{" "}
             <span className="text-white font-medium">
-              Gwarantujemy 100/100 punktów Google PageSpeed.
+              We guarantee a 100/100 Google PageSpeed score.
             </span>
           </motion.p>
 
@@ -172,7 +165,7 @@ function Hero() {
               href="#pricing"
               className="group inline-flex items-center gap-3 bg-blue-500 hover:bg-blue-400 text-white font-bold text-base px-8 py-4 rounded-xl transition-all duration-300 glow-blue hover:scale-105"
             >
-              Zobacz Cennik
+              View Pricing
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>
@@ -289,45 +282,45 @@ function Pricing() {
 
   const tiers = [
     {
-      name: "START (MVP)",
-      price: "1 499 PLN",
-      period: "jednorazowo",
+      name: "ESSENTIAL",
+      price: "£499",
+      period: "one-time",
       features: [
-        "Projekt One-Page (Single Page)",
-        "Optymalizacja pod Mobile",
-        "Szybkość ładowania < 1.5s",
-        "Certyfikat SSL (Bezpieczeństwo)",
-        "Podstawowe SEO",
-        "Wdrożenie na Cloudflare Pages",
+        "Single Page Design",
+        "Mobile-First Optimization",
+        "Load time < 1s",
+        "SSL & Security Included",
+        "Local SEO Setup",
+        "Hosted on Cloudflare Pages",
       ],
       featured: false,
     },
     {
-      name: "PRO (Barber Elite)",
-      price: "2 499 PLN",
-      period: "jednorazowo",
-      badge: "NAJCZĘŚCIEJ WYBIERANY",
+      name: "PREMIUM (Barber Pro)",
+      price: "£899",
+      period: "one-time",
+      badge: "MOST POPULAR",
       features: [
-        "Wszystko co w START",
-        "System rezerwacji online",
-        "Integracja z Google Maps/Opinie",
-        "Gwarancja 100/100 PageSpeed",
-        "Analityka ruchu AI",
-        "Hosting na brzegu sieci (Edge)",
+        "Multi-page or Advanced One-page",
+        "Online Booking Integration",
+        "100/100 PageSpeed Guarantee",
+        "Google Business Profile Sync",
+        "AI Chatbot Assistant",
+        "Priority Edge Hosting",
       ],
       featured: true,
     },
     {
-      name: "ABONAMENT",
-      price: "149 PLN",
-      period: "miesięcznie",
+      name: "MANAGED",
+      price: "£49",
+      period: "monthly",
       features: [
-        "Utrzymanie i Hosting (Edge)",
-        "Bieżące aktualizacje treści",
-        "Ochrona Anti-DDoS",
-        "Backupy co 24h",
-        "Wsparcie techniczne 24/7",
-        "Monitoring dostępności",
+        "Managed Edge Hosting",
+        "Unlimited Content Updates",
+        "Enterprise DDoS Protection",
+        "Daily Backups",
+        "24/7 Technical Support",
+        "Performance Monitoring",
       ],
       featured: false,
     },
@@ -344,10 +337,10 @@ function Pricing() {
           className="text-center mb-20"
         >
           <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-black text-blue-500 mb-6 uppercase tracking-tight">
-            CENNIK USŁUG SHARPSTATIC
+            EDGECLAW UK PRICING
           </motion.h2>
           <motion.p variants={fadeUp} className="text-xl md:text-2xl text-slate-400 font-medium">
-            Ultra-szybkie strony internetowe oparte na technologii Cloudflare Edge
+            Ultra-fast websites tailored for your growth
           </motion.p>
         </motion.div>
 
@@ -366,8 +359,8 @@ function Pricing() {
             >
               {tier.badge && (
                 <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[0.7rem] font-black px-5 py-2 rounded-xl shadow-lg whitespace-nowrap tracking-wide leading-tight text-center">
-                  <div>NAJCZĘŚCIEJ</div>
-                  <div>WYBIERANY</div>
+                  <div>MOST</div>
+                  <div>POPULAR</div>
                 </div>
               )}
 
@@ -377,7 +370,7 @@ function Pricing() {
                 </h3>
                 <div className="flex items-baseline gap-2 mb-1">
                   <span className="text-5xl font-black text-blue-500">{tier.price}</span>
-                  {tier.period === "miesięcznie" && <span className="text-slate-500 text-xl font-bold">/</span>}
+                  {tier.period === "monthly" && <span className="text-slate-500 text-xl font-bold">/</span>}
                 </div>
                 <p className="text-slate-500 font-bold text-sm uppercase tracking-wider">
                   {tier.period}
@@ -408,15 +401,15 @@ function Pricing() {
           
           <div className="flex flex-col gap-6 border-l-4 border-blue-500 pl-8">
             <h4 className="text-white text-xl font-black uppercase tracking-tight">
-              <span className="text-blue-500">Dlaczego my?</span> Nie używamy WordPressa.
+              <span className="text-blue-500">Why EdgeClaw?</span> We don't use WordPress.
             </h4>
             <p className="text-slate-400 text-lg leading-relaxed font-medium">
-              Budujemy strony jako czysty kod (React/Static), co sprawia, że są nie do zhakowania i działają błyskawicznie na każdym urządzeniu. 
+              We build clean, high-performance code that is unhackable and blazing fast. Perfect for UK businesses looking to dominate local search.
             </p>
           </div>
 
           <p className="text-slate-600 italic text-sm md:text-base">
-            *Podane ceny są cenami netto. Przy większych projektach wycena indywidualna.
+            *Prices are net. For bespoke enterprise solutions, contact us for a quote.
           </p>
         </motion.div>
       </div>
@@ -536,7 +529,7 @@ function ContactForm() {
     e.preventDefault();
     const subject = `Speed Audit Request - ${form.businessName || form.name}`;
     const body = `Name: ${form.name}\nBusiness: ${form.businessName}\nWebsite: ${form.websiteUrl}\nEmail: ${form.email}\n\nPlease provide a speed audit for my website.`;
-    window.location.href = `mailto:ksawery@sharpstatic.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:ksawery@edgeclaw.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
   };
 
@@ -704,7 +697,7 @@ function Footer() {
               <Zap className="w-3.5 h-3.5 text-white" strokeWidth={2.5} />
             </div>
             <span className="font-bold text-lg text-white tracking-tight uppercase">
-              SHARP<span className="text-blue-400">STATIC</span>
+              EDGE<span className="text-blue-400">CLAW</span>
             </span>
           </div>
 
@@ -715,7 +708,7 @@ function Footer() {
           </div>
 
           <p className="text-slate-600 text-sm">
-            © {new Date().getFullYear()} SharpStatic. All rights reserved.
+            © {new Date().getFullYear()} EdgeClaw. All rights reserved.
           </p>
         </div>
       </div>
