@@ -339,7 +339,7 @@ function Pricing() {
           className="text-center mb-20"
         >
           <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-black text-blue-500 mb-6 uppercase tracking-tight">
-            CENNIK EDGESCLAW PL
+            CENNIK
           </motion.h2>
           <motion.p variants={fadeUp} className="text-xl md:text-2xl text-slate-400 font-medium">
             Ultraszybkie strony internetowe dostosowane do Twojego rozwoju

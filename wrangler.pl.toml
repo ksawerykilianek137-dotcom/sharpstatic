@@ -1,4 +1,4 @@
-name = "edgesclaw-en"
+name = "edgesclaw-pl"
 compatibility_date = "2024-11-01"
 # This tells Cloudflare to serve the static files from our landing page build
 main = "artifacts/api-server/src/index.ts"
