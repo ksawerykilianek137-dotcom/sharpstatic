@@ -74,6 +74,12 @@ function Navbar() {
               </a>
             ))}
             <a
+              href="/pl"
+              className="text-sm font-semibold text-blue-400 hover:text-blue-300 transition-colors uppercase tracking-widest border border-blue-400/30 px-2 py-1 rounded"
+            >
+              PL
+            </a>
+            <a
               href="#contact"
               className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-400 text-white text-sm font-semibold px-4 py-2 rounded-lg transition-all duration-200 glow-blue-sm hover:glow-blue"
             >
@@ -111,6 +117,13 @@ function Navbar() {
                   {l.label}
                 </a>
               ))}
+              <a
+                href="/pl"
+                onClick={() => setOpen(false)}
+                className="text-sm font-bold text-blue-400 py-2 border-b border-white/5"
+              >
+                Przełącz na Polski (PL)
+              </a>
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
