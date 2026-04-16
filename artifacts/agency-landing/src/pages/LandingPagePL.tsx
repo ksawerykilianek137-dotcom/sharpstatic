@@ -285,7 +285,7 @@ function Pricing() {
   const tiers = [
     {
       name: "PODSTAWOWY",
-      price: "1999 zł",
+      price: "1499 zł",
       period: "jednorazowo",
       features: [
         "Projekt One-Page",
@@ -298,8 +298,8 @@ function Pricing() {
       featured: false,
     },
     {
-      name: "PREMIUM (Barber Pro)",
-      price: "3499 zł",
+      name: "PREMIUM",
+      price: "1999 zł",
       period: "jednorazowo",
       badge: "NAJPOPULARNIEJSZY",
       features: [
@@ -314,7 +314,7 @@ function Pricing() {
     },
     {
       name: "ZARZĄDZANY",
-      price: "199 zł",
+      price: "99 zł",
       period: "miesięcznie",
       features: [
         "Zarządzany Hosting Edge",
@@ -527,12 +527,27 @@ function ContactForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = `Zapytanie o Audyt Szybkości - ${form.businessName || form.name}`;
-    const body = `Imię i nazwisko: ${form.name}\nFirma: ${form.businessName}\nStrona: ${form.websiteUrl}\nE-mail: ${form.email}\n\nProszę o przeprowadzenie audytu szybkości dla mojej strony internetowej.`;
-    window.location.href = `mailto:ksawery@edgesclaw.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, language: "pl" }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Coś poszło nie tak. Spróbuj ponownie później lub skontaktuj się z nami bezpośrednio pod adresem ksawery@edgesclaw.com");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass =

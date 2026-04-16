@@ -309,8 +309,8 @@ function Pricing() {
       featured: false,
     },
     {
-      name: "PREMIUM (Barber Pro)",
-      price: "£899",
+      name: "PREMIUM",
+      price: "£999",
       period: "one-time",
       badge: "MOST POPULAR",
       features: [
@@ -538,12 +538,27 @@ function ContactForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = `Speed Audit Request - ${form.businessName || form.name}`;
-    const body = `Name: ${form.name}\nBusiness: ${form.businessName}\nWebsite: ${form.websiteUrl}\nEmail: ${form.email}\n\nPlease provide a speed audit for my website.`;
-    window.location.href = `mailto:ksawery@edgesclaw.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, language: "en" }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Something went wrong. Please try again or contact us directly at ksawery@edgesclaw.com");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const inputClass =
