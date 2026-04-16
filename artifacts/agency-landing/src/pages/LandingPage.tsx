@@ -59,7 +59,7 @@ function Navbar() {
               <Zap className="w-4 h-4 text-white" strokeWidth={2.5} />
             </div>
             <span className="font-bold text-xl tracking-tight text-white uppercase">
-              EDGE<span className="text-blue-400">CLAW</span>
+              EDGES<span className="text-blue-400">CLAW</span>
             </span>
           </a>
 
@@ -337,7 +337,7 @@ function Pricing() {
           className="text-center mb-20"
         >
           <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-black text-blue-500 mb-6 uppercase tracking-tight">
-            EDGECLAW UK PRICING
+            EDGESCLAW UK PRICING
           </motion.h2>
           <motion.p variants={fadeUp} className="text-xl md:text-2xl text-slate-400 font-medium">
             Ultra-fast websites tailored for your growth
@@ -401,7 +401,7 @@ function Pricing() {
           
           <div className="flex flex-col gap-6 border-l-4 border-blue-500 pl-8">
             <h4 className="text-white text-xl font-black uppercase tracking-tight">
-              <span className="text-blue-500">Why EdgeClaw?</span> We don't use WordPress.
+              <span className="text-blue-500">Why EdgesClaw?</span> We don't use WordPress.
             </h4>
             <p className="text-slate-400 text-lg leading-relaxed font-medium">
               We build clean, high-performance code that is unhackable and blazing fast. Perfect for UK businesses looking to dominate local search.
@@ -529,7 +529,7 @@ function ContactForm() {
     e.preventDefault();
     const subject = `Speed Audit Request - ${form.businessName || form.name}`;
     const body = `Name: ${form.name}\nBusiness: ${form.businessName}\nWebsite: ${form.websiteUrl}\nEmail: ${form.email}\n\nPlease provide a speed audit for my website.`;
-    window.location.href = `mailto:ksawery@edgeclaw.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:ksawery@edgesclaw.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
   };
 
@@ -697,7 +697,7 @@ function Footer() {
               <Zap className="w-3.5 h-3.5 text-white" strokeWidth={2.5} />
             </div>
             <span className="font-bold text-lg text-white tracking-tight uppercase">
-              EDGE<span className="text-blue-400">CLAW</span>
+              EDGES<span className="text-blue-400">CLAW</span>
             </span>
           </div>
 
@@ -708,7 +708,7 @@ function Footer() {
           </div>
 
           <p className="text-slate-600 text-sm">
-            © {new Date().getFullYear()} EdgeClaw. All rights reserved.
+            © {new Date().getFullYear()} EdgesClaw. All rights reserved.
           </p>
         </div>
       </div>

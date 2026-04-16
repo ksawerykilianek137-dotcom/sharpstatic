@@ -48,7 +48,7 @@ function Navbar() {
               <Zap className="w-4 h-4 text-white" strokeWidth={2.5} />
             </div>
             <span className="font-bold text-xl tracking-tight text-white uppercase">
-              EDGE<span className="text-blue-400">CLAW</span>
+              EDGES<span className="text-blue-400">CLAW</span>
             </span>
           </a>
 
@@ -326,7 +326,7 @@ function Pricing() {
           className="text-center mb-20"
         >
           <motion.h2 variants={fadeUp} className="text-5xl md:text-7xl font-black text-blue-500 mb-6 uppercase tracking-tight">
-            CENNIK EDGECLAW PL
+            CENNIK EDGESCLAW PL
           </motion.h2>
           <motion.p variants={fadeUp} className="text-xl md:text-2xl text-slate-400 font-medium">
             Ultraszybkie strony internetowe dostosowane do Twojego rozwoju
@@ -390,7 +390,7 @@ function Pricing() {
           
           <div className="flex flex-col gap-6 border-l-4 border-blue-500 pl-8">
             <h4 className="text-white text-xl font-black uppercase tracking-tight">
-              <span className="text-blue-500">Dlaczego EdgeClaw?</span> Nie używamy WordPressa.
+              <span className="text-blue-500">Dlaczego EdgesClaw?</span> Nie używamy WordPressa.
             </h4>
             <p className="text-slate-400 text-lg leading-relaxed font-medium">
               Budujemy czysty, wysokowydajny kod, który jest niemożliwy do zhakowania i błyskawicznie szybki. Idealny dla polskich firm, które chcą zdominować lokalne wyszukiwania.
@@ -518,7 +518,7 @@ function ContactForm() {
     e.preventDefault();
     const subject = `Zapytanie o Audyt Szybkości - ${form.businessName || form.name}`;
     const body = `Imię i nazwisko: ${form.name}\nFirma: ${form.businessName}\nStrona: ${form.websiteUrl}\nE-mail: ${form.email}\n\nProszę o przeprowadzenie audytu szybkości dla mojej strony internetowej.`;
-    window.location.href = `mailto:ksawery@edgeclaw.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:ksawery@edgesclaw.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSubmitted(true);
   };
 
@@ -686,7 +686,7 @@ function Footer() {
               <Zap className="w-3.5 h-3.5 text-white" strokeWidth={2.5} />
             </div>
             <span className="font-bold text-lg text-white tracking-tight uppercase">
-              EDGE<span className="text-blue-400">CLAW</span>
+              EDGES<span className="text-blue-400">CLAW</span>
             </span>
           </div>
 
@@ -697,7 +697,7 @@ function Footer() {
           </div>
 
           <p className="text-slate-600 text-sm">
-            © {new Date().getFullYear()} EdgeClaw. Wszelkie prawa zastrzeżone.
+            © {new Date().getFullYear()} EdgesClaw. Wszelkie prawa zastrzeżone.
           </p>
         </div>
       </div>
